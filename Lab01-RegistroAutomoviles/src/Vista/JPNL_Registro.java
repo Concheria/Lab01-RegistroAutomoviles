@@ -1,12 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Crea el panel de etiquetas y campos de texto que se usan en el Frame de Registro de Automóviles
  */
 package Vista;
 
+import Controlador.Controlador_RegistroAutomoviles;
+
 /**
- *
  * @author sqdan
  */
 public class JPNL_Registro extends javax.swing.JPanel {
@@ -17,7 +16,100 @@ public class JPNL_Registro extends javax.swing.JPanel {
     public JPNL_Registro() {
         initComponents();
     }
+    
+    void agregarEventos(Controlador_RegistroAutomoviles controlador) 
+    {
+        jb_Buscar.addActionListener(controlador);
+    }
+    
+    /*
+    * GETTERS
+    */
+    
+    public String getNumero()
+    {
+        return jtf_Numero.getText();
+    }
+    
+    public String getNombre()
+    {
+        return jtf_Nombre.getText();
+    }
+    
+    public String getCedula()
+    {
+        return jtf_Cedula.getText();
+    }
+    
+    public String getPlaca()
+    {
+        return jtf_Placa.getText();
+    }
+    
+    public String[] getTodo()
+    {
+        String[] todo = new String[4];
+        
+        todo[0] =  jtf_Numero.getText();
+        todo[1] = jtf_Nombre.getText();
+        todo[2] = jtf_Cedula.getText();
+        todo[3] = jtf_Placa.getText();
+                    
+        return todo;
+    }
 
+    /*
+    * SETTERS
+    */
+    
+    public void setNumero(String numero)
+    {
+        jtf_Numero.setText(numero);
+    }
+    
+    public void setNombre(String nombre)
+    {
+        jtf_Nombre.setText(nombre);
+    }
+    
+    public void setCedula(String cedula)
+    {
+        jtf_Cedula.setText(cedula);
+    }
+    
+    public void setPlaca(String placa)
+    {
+       jtf_Placa.setText(placa);
+    }
+    
+    public void setTodo(String[] todo)
+    {
+        jtf_Numero.setText(todo[0]);
+        jtf_Nombre.setText(todo[1]);
+        jtf_Cedula.setText(todo[2]);
+        jtf_Placa.setText(todo[3]);
+    }
+    
+    public void clearFields()
+    {
+        jtf_Numero.setText("");
+        jtf_Nombre.setText("");
+        jtf_Cedula.setText("");
+        jtf_Placa.setText("");
+    }
+    
+    public void estadoSinAgregar()
+    {
+        jtf_Numero.setEnabled(false);
+        jb_Buscar.setEnabled(false);
+    }
+    
+    public void estadoAgregar()
+    {
+        jtf_Numero.setEnabled(true);
+        jb_Buscar.setEnabled(true);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,21 +120,24 @@ public class JPNL_Registro extends javax.swing.JPanel {
     private void initComponents() {
 
         jl_Numero = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jl_Nombre = new javax.swing.JLabel();
+        jl_Cedula = new javax.swing.JLabel();
+        jl_Placa = new javax.swing.JLabel();
         jtf_Placa = new javax.swing.JTextField();
         jtf_Cedula = new javax.swing.JTextField();
         jtf_Nombre = new javax.swing.JTextField();
         jtf_Numero = new javax.swing.JTextField();
+        jb_Buscar = new javax.swing.JButton();
 
         jl_Numero.setText("Número de Registro");
 
-        jLabel2.setText("Nombre del Dueño");
+        jl_Nombre.setText("Nombre del Dueño");
 
-        jLabel3.setText("Cédula del Dueño");
+        jl_Cedula.setText("Cédula del Dueño");
 
-        jLabel4.setText("Placa del Automóvil");
+        jl_Placa.setText("Placa del Automóvil");
+
+        jb_Buscar.setText("Buscar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -52,15 +147,18 @@ public class JPNL_Registro extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jl_Numero)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                    .addComponent(jl_Nombre)
+                    .addComponent(jl_Cedula)
+                    .addComponent(jl_Placa))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jtf_Numero)
                     .addComponent(jtf_Placa, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
                     .addComponent(jtf_Cedula)
-                    .addComponent(jtf_Nombre))
+                    .addComponent(jtf_Nombre)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jtf_Numero)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jb_Buscar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -69,18 +167,19 @@ public class JPNL_Registro extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jl_Numero)
-                    .addComponent(jtf_Numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtf_Numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_Buscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(jl_Nombre)
                     .addComponent(jtf_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(jl_Cedula)
                     .addComponent(jtf_Cedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(jl_Placa)
                     .addComponent(jtf_Placa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -88,13 +187,15 @@ public class JPNL_Registro extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JButton jb_Buscar;
+    private javax.swing.JLabel jl_Cedula;
+    private javax.swing.JLabel jl_Nombre;
     private javax.swing.JLabel jl_Numero;
+    private javax.swing.JLabel jl_Placa;
     private javax.swing.JTextField jtf_Cedula;
     private javax.swing.JTextField jtf_Nombre;
     private javax.swing.JTextField jtf_Numero;
     private javax.swing.JTextField jtf_Placa;
     // End of variables declaration//GEN-END:variables
+
 }

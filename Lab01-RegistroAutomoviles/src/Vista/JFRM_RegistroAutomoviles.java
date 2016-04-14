@@ -1,21 +1,86 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * I Laboratorio Programado
+ * Registro de Automóviles
+ * 
+ * Estudiante: Daniel Somarribas Quirós
+ * Carné: b57072
  */
 package Vista;
 
+import Controlador.Controlador_RegistroAutomoviles;
+import Modelo.Metodos_RegistroAutomoviles;
+
 /**
- *
  * @author sqdan
  */
 public class JFRM_RegistroAutomoviles extends javax.swing.JFrame {
-
+    Controlador_RegistroAutomoviles controlador;
+    Metodos_RegistroAutomoviles metodos;
+    
     /**
-     * Creates new form JFRM_RegistroAutomoviles
+     * Crea el Frame Registro de Automóviles
      */
-    public JFRM_RegistroAutomoviles() {
+    public JFRM_RegistroAutomoviles() 
+    {
         initComponents();
+        controlador = new Controlador_RegistroAutomoviles(this);
+        agregarEventos();
+        estadoSinBuscar();
+        estadoSinAgregar();
+    }
+    
+    /*
+    * Agregar los eventos a los botones
+    */
+    public void agregarEventos()
+    {
+        jpnl_Registro.agregarEventos(controlador);
+        jpnl_Botones.agregarEventos(controlador);
+    }
+    
+    public String getNumero()
+    {
+        return jpnl_Registro.getNumero();
+    }
+    
+    public void setFields(String[] todo)
+    {
+        jpnl_Registro.setTodo(todo);
+    }
+    
+    public String[] getFields()
+    {
+        return jpnl_Registro.getTodo();
+    }
+    
+    public void setNumeroRegistro(String numeroRegistro)
+    {        
+        jpnl_Registro.setNumero(numeroRegistro);
+    }
+    
+    public void clearFields()
+    {
+        jpnl_Registro.clearFields();
+    }
+    
+    public void estadoBuscar()
+    {
+        jpnl_Botones.estadoBuscar();
+    }
+    
+    public void estadoSinBuscar()
+    {
+        jpnl_Botones.estadoSinBuscar();
+    }
+    
+    public void estadoSinAgregar()
+    {
+        jpnl_Registro.estadoSinAgregar();
+    }
+    
+    public void estadoAgregar()
+    {
+        jpnl_Registro.estadoAgregar();
     }
 
     /**
@@ -27,8 +92,8 @@ public class JFRM_RegistroAutomoviles extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPNL_Registro1 = new Vista.JPNL_Registro();
-        jPNL_Botones1 = new Vista.JPNL_Botones();
+        jpnl_Registro = new Vista.JPNL_Registro();
+        jpnl_Botones = new Vista.JPNL_Botones();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,20 +104,20 @@ public class JFRM_RegistroAutomoviles extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPNL_Registro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(jPNL_Botones1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jpnl_Botones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jpnl_Registro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPNL_Registro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jpnl_Registro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPNL_Botones1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jpnl_Botones, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -61,7 +126,8 @@ public class JFRM_RegistroAutomoviles extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) {        
+        //Look and Feel apesta >:(
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -94,7 +160,7 @@ public class JFRM_RegistroAutomoviles extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Vista.JPNL_Botones jPNL_Botones1;
-    private Vista.JPNL_Registro jPNL_Registro1;
+    private Vista.JPNL_Botones jpnl_Botones;
+    private Vista.JPNL_Registro jpnl_Registro;
     // End of variables declaration//GEN-END:variables
 }

@@ -20,16 +20,20 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jl_Numero" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jl_Nombre" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jl_Cedula" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jl_Placa" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jtf_Numero" max="32767" attributes="0"/>
                   <Component id="jtf_Placa" alignment="0" pref="256" max="32767" attributes="0"/>
                   <Component id="jtf_Cedula" alignment="0" max="32767" attributes="0"/>
                   <Component id="jtf_Nombre" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jtf_Numero" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jb_Buscar" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -42,20 +46,21 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jl_Numero" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jtf_Numero" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jb_Buscar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jl_Nombre" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jtf_Nombre" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jl_Cedula" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jtf_Cedula" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jl_Placa" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jtf_Placa" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -69,17 +74,17 @@
         <Property name="text" type="java.lang.String" value="N&#xfa;mero de Registro"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="jl_Nombre">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nombre del Due&#xf1;o"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="jl_Cedula">
       <Properties>
         <Property name="text" type="java.lang.String" value="C&#xe9;dula del Due&#xf1;o"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JLabel" name="jl_Placa">
       <Properties>
         <Property name="text" type="java.lang.String" value="Placa del Autom&#xf3;vil"/>
       </Properties>
@@ -91,6 +96,11 @@
     <Component class="javax.swing.JTextField" name="jtf_Nombre">
     </Component>
     <Component class="javax.swing.JTextField" name="jtf_Numero">
+    </Component>
+    <Component class="javax.swing.JButton" name="jb_Buscar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Buscar"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
